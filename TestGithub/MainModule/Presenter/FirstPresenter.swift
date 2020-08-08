@@ -21,6 +21,7 @@ protocol MainViewPresenter: class {
     
     func searchAccounts(name: String)
     func getAccountsList(id: Int)
+    func uploadAccountList(_ indexRow: Int)
 }
 
 final class MainPresenter: MainViewPresenter {
@@ -28,7 +29,7 @@ final class MainPresenter: MainViewPresenter {
     private weak var view: MainViewProtocol?
     private let networkService: NetworkServiceProtocol
     
-    public var model : [Accounts]?
+    public var model: [Accounts]? = [Accounts]()
     
     required init(view: MainViewProtocol, networkService: NetworkServiceProtocol) {
         self.view = view
@@ -53,17 +54,24 @@ final class MainPresenter: MainViewPresenter {
 //        }
     }
     
-    
     public func getAccountsList(id: Int) {
         networkService.getAccounts(since: id) { [weak self] (result) in
             switch result {
             case .success(let repositories):
-                self?.model = repositories
+                self?.model?.append(contentsOf: repositories!)
                 self?.view?.succes()
             case .failure(_):
                 self?.view?.failure()
                 print("failer")
             }
+        }
+    }
+    
+    public func uploadAccountList(_ indexRow: Int) {
+        guard let elementCount = model?.count, let id = model?.last?.id else { return }
+        
+        if (elementCount  - indexRow) == 5 {
+            getAccountsList(id: id)
         }
     }
 }

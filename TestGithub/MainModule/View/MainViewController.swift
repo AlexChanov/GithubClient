@@ -23,7 +23,6 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        view.backgroundColor = .white
     }
     
     // MARK: - Private
@@ -73,8 +72,9 @@ extension MainViewController: UITableViewDataSource {
             else { return UITableViewCell() }
         
         let model = presenter?.model?[indexPath.row]
+        cell.config(for: AccountViewCell.DataModel(imageUrl: model?.avatar_url, login: model?.login, type: model?.type))
         
-        cell.config(for: AccountViewCell.DataModel(image: UIImage(), login: model?.login, type: model?.type))
+        presenter?.uploadAccountList(indexPath.row)
         return cell
     }
 }
@@ -85,5 +85,9 @@ extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return Constans.cellHeight
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

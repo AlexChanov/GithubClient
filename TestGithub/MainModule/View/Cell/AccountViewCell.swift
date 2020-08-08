@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import SDWebImage
 
 public protocol AccountViewCellViewModel {
     
-    var image: UIImage? { get }
+    var imageUrl: String? { get }
     var login: String? { get }
     var type: String? { get }
 }
@@ -21,7 +22,7 @@ class AccountViewCell: UITableViewCell {
     
     public struct DataModel: AccountViewCellViewModel {
         
-        public let image: UIImage?
+        public let imageUrl: String?
         public let login: String?
         public let type: String?
     }
@@ -53,8 +54,12 @@ class AccountViewCell: UITableViewCell {
     // MARK: - Public
     
     public func config (for viewModel: ViewModel) {
-        avatarImageView.image = viewModel.image
         loginLabel.text = viewModel.login
         typeLabel.text = viewModel.type
+        
+        guard let urlString = viewModel.imageUrl,
+            let url = URL(string:urlString ) else { return }
+        
+        avatarImageView.sd_setImage(with: url, completed: nil)
     }
 }
