@@ -30,6 +30,7 @@ final class RepositoryViewCell: UITableViewCell {
     }
     
     public enum Constatns {
+        static let id: String = "repoViewCell"
         
         static let heightImage: CGFloat = 80
     }

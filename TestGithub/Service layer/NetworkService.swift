@@ -14,6 +14,7 @@ protocol NetworkServiceProtocol {
 
     func getRepositories(name: String, complition: @escaping (Result<[RepositoryDescription]?, Error>) -> Void)
     func getAccounts(since: Int, complition: @escaping (Result<[Account]?, Error>) -> Void)
+    func getFullInfoAccount(name: String, complition: @escaping (Result<AccountFullInfo?, Error>) -> Void)
 }
 
 final class NetworkService: NetworkServiceProtocol {
@@ -37,7 +38,6 @@ final class NetworkService: NetworkServiceProtocol {
                 complition(.failure(error))
                 return
             }
-            
             guard let data = data else { return }
             
             do {
@@ -57,7 +57,6 @@ final class NetworkService: NetworkServiceProtocol {
                  complition(.failure(error))
                  return
              }
-             
              guard let data = data else { return }
              
              do {
@@ -68,4 +67,25 @@ final class NetworkService: NetworkServiceProtocol {
              }
          }.resume()
     }
+    
+    
+   public func getFullInfoAccount(name: String, complition: @escaping (Result<AccountFullInfo?, Error>) -> Void) {
+        guard let url = apiWrapper.makeFullInfoAccount(name: name) else { return }
+        
+        session.dataTask(with: url) { (data, _, error) in
+            if let error = error {
+                complition(.failure(error))
+                return
+            }
+            guard let data = data else { return }
+            
+            do {
+                let objects = try JSONDecoder().decode(AccountFullInfo.self, from: data)
+                complition(.success(objects))
+            } catch {
+                complition(.failure(error))
+            }
+        }.resume()
+    }
+    
 }

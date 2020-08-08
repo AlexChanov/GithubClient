@@ -101,10 +101,6 @@ extension MainViewController: UITableViewDelegate {
         return Constans.cellHeight
     }
     
-    public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Constans.cellHeight
-    }
-    
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         presenter?.tapOnTheAccount(indexRow: indexPath.row)

@@ -15,3 +15,13 @@ struct RepositoryDescription: Decodable {
     var stargazers_count: Int?
     var updated_at: String?
 }
+
+
+struct AccountFullInfo: Decodable {
+    
+    var login: String?
+    var avatar_url: String?
+    var name: String?
+    var created_at: String?
+    var location: String?
+}

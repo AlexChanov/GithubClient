@@ -12,21 +12,24 @@ protocol APIWrapperProtocol {
     
     func makeUrlForAccount(since: Int) -> URL?
     func makeUrlForDescriptionAccount(name: String) -> URL?
+    func makeFullInfoAccount(name: String) -> URL?
 }
 
 struct APIWrapper: APIWrapperProtocol {
-   
+
     public func makeUrlForDescriptionAccount(name: String) -> URL? {
-        let baseURL = "https://api.github.com/users/\(name)/repos"  //page=2&per_page=100'
-        var urlCompanents = URLComponents(string: baseURL)
-
-        let count = URLQueryItem(name: "per_page", value: "20")
-
-        urlCompanents?.queryItems = [count]
+        let baseURL = "https://api.github.com/users/\(name)/repos"
+        let urlCompanents = URLComponents(string: baseURL)
         
         return urlCompanents?.url ?? nil
     }
     
+    public func makeFullInfoAccount(name: String) -> URL? {
+        let baseURL = "https://api.github.com/users/"
+        let urlCompanents = URLComponents(string: baseURL + name)
+        
+        return urlCompanents?.url ?? nil
+    }
     
     public func makeUrlForAccount(since: Int) -> URL? {
         let baseURL = "https://api.github.com/users"

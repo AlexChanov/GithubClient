@@ -10,6 +10,7 @@ import Foundation
 
 protocol DetailViewProtocol: class {
     func succes()
+    func succes(url: URL?)
     func failure(title: String, message: String)
     
 }
@@ -17,6 +18,7 @@ protocol DetailViewProtocol: class {
 protocol DetailViewPresenter: class {
     init(view: DetailViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, account: Account?)
     
+    var account: AccountFullInfo? { get set }
     var model: [RepositoryDescription]? { get set }
 }
 
@@ -25,32 +27,43 @@ final class DetailPresenter: DetailViewPresenter {
     private weak var view: DetailViewProtocol?
     private let networkService: NetworkServiceProtocol
     private let router: RouterProtocol
-    private let account: Account?
-    
+   
+    public var account: AccountFullInfo?
     public var model: [RepositoryDescription]?
     
     init(view: DetailViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol, account: Account?) {
         self.view = view
         self.networkService = networkService
-        self.account = account
         self.router = router
-        getRepositories()
+        
+        getFullInfo(name: account?.login ?? "")
+        getRepositories(name: account?.login ?? "")
     }
-    
-    public func getRepositories() {
-        networkService.getRepositories(name: account?.login ?? "") { [weak self] result in
+        
+    private func getRepositories(name: String) {
+        networkService.getRepositories(name: name) { [weak self] result in
              guard let self = self else { return }
              switch result {
              case .success(let repositories):
                  self.model = repositories
                  self.view?.succes()
              case .failure(_):
-                self?.view?.failure(title: "Пороблемы с соединением", message: "Попробуйте позже")
+                self.view?.failure(title: "Пороблемы с соединением", message: "Попробуйте позже")
              }
          }
     }
     
-    public func tapBack() {
-//        router.popToRoot()
+    private func getFullInfo(name: String) {
+        networkService.getFullInfoAccount(name: name) { [weak self] (result) in
+            guard let self = self else { return }
+            switch result {
+            case .success(let account):
+                self.account = account
+                let urlImage = URL(string: account?.avatar_url ?? "")
+                self.view?.succes(url: urlImage)
+            case .failure(_):
+                self.view?.failure(title: "Пороблемы с соединением", message: "Попробуйте позже")
+            }
+        }
     }
 }
