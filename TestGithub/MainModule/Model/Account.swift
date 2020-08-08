@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Accounts: Decodable, Hashable {
+struct Account: Decodable, Hashable {
    
     let login: String?
     let avatar_url: String?

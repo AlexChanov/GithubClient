@@ -9,6 +9,8 @@
 import UIKit
 
 class DetailViewController: BaseViewController {
+    
+    public var presenter: DetailViewPresenter?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,4 +29,9 @@ class DetailViewController: BaseViewController {
     }
     */
 
+}
+
+
+extension DetailViewController: DetailViewProtocol {
+    
 }

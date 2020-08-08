@@ -16,55 +16,44 @@ protocol MainViewProtocol: class {
 }
 
 protocol MainViewPresenter: class {
-    init(view: MainViewProtocol, networkService: NetworkServiceProtocol)
+    init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol)
     
-    var model: [Accounts]? { get set }
+    var model: [Account]? { get set }
     
     func searchAccounts(name: String)
     func getAccountsList(id: Int)
     func uploadAccountList(_ indexRow: Int)
     func sortedModel()
+    func tapOnTheAccount(indexRow: Int)
 }
 
 final class MainPresenter: MainViewPresenter {
     
     private weak var view: MainViewProtocol?
     private let networkService: NetworkServiceProtocol
+    private let router: RouterProtocol?
     
-    public var model: [Accounts]? = [Accounts]()
+    public var model: [Account]? = [Account]()
     
-    required init(view: MainViewProtocol, networkService: NetworkServiceProtocol) {
+    required init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol) {
         self.view = view
         self.networkService = networkService
-        getAccountsList(id: 0)
+        self.router = router
+        getAccountsList()
     }
     
     // MARK: - Public
     
     public func searchAccounts(name: String) {
-        
         if let value = (model?.firstIndex(where: { $0.login == name })) {
             model?.swapAt(value, 0)
             view?.swapElement(first: IndexPath(row: value, section: 0), second: IndexPath(row: 0, section: 0))
         } else {
             view?.failure(title: "Аккаунт не найдет", message: "Попробуйте снова")
         }
-        
-//        networkService.getRepositories(name: name) { [weak self] result in
-//            guard let self = self else { return }
-//
-//            switch result {
-//            case .success(let repositories):
-//                self.model = repositories
-//                self.view?.succes()
-//            case .failure(_):
-//                self.view?.failure()
-//                print("failer")
-//            }
-//        }
     }
     
-    public func getAccountsList(id: Int) {
+    public func getAccountsList(id: Int = 0) {
         networkService.getAccounts(since: id) { [weak self] (result) in
             switch result {
             case .success(let repositories):
@@ -72,7 +61,6 @@ final class MainPresenter: MainViewPresenter {
                 self?.model?.removeDuplicates()
                 self?.view?.succes()
             case .failure(_):
-                
                 self?.view?.failure(title: "Пороблемы с соединением", message: "Попробуйте позже")
             }
         }
@@ -90,5 +78,10 @@ final class MainPresenter: MainViewPresenter {
         let sortedArray = model?.filter { $0.login != nil }.sorted { $0.login!.lowercased() < $1.login!.lowercased() }
         model = sortedArray
         view?.succes()
+    }
+    
+    public func tapOnTheAccount(indexRow: Int) {
+        guard let account = model?[indexRow] else { return }
+        router?.showDetail(account: account)
     }
 }

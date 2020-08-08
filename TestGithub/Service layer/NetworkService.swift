@@ -13,7 +13,7 @@ protocol NetworkServiceProtocol {
     var apiWrapper: APIWrapperProtocol { get }
 
     func getRepositories(name: String, complition: @escaping (Result<[RepositoryDescription]?, Error>) -> Void)
-    func getAccounts(since: Int, complition: @escaping (Result<[Accounts]?, Error>) -> Void)
+    func getAccounts(since: Int, complition: @escaping (Result<[Account]?, Error>) -> Void)
 }
 
 final class NetworkService: NetworkServiceProtocol {
@@ -30,7 +30,6 @@ final class NetworkService: NetworkServiceProtocol {
     // MARK: - Public
     
     public func getRepositories(name: String, complition: @escaping (Result<[RepositoryDescription]?, Error>) -> Void) {
-                
         guard let url = apiWrapper.makeUrlForDescriptionAccount(name: name) else { return }
         
         session.dataTask(with: url) { (data, _, error) in
@@ -50,8 +49,7 @@ final class NetworkService: NetworkServiceProtocol {
         }.resume()
     }
     
-    public func getAccounts(since: Int, complition: @escaping (Result<[Accounts]?, Error>) -> Void) {
-                 
+    public func getAccounts(since: Int, complition: @escaping (Result<[Account]?, Error>) -> Void) {
          guard let url = apiWrapper.makeUrlForAccount(since: since) else { return }
          
          session.dataTask(with: url) { (data, _, error) in
@@ -63,7 +61,7 @@ final class NetworkService: NetworkServiceProtocol {
              guard let data = data else { return }
              
              do {
-                 let objects = try JSONDecoder().decode([Accounts].self, from: data)
+                 let objects = try JSONDecoder().decode([Account].self, from: data)
                  complition(.success(objects))
              } catch {
                  complition(.failure(error))

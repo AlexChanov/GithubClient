@@ -39,10 +39,11 @@ class AccountViewCell: UITableViewCell {
     @IBOutlet weak var typeLabel: UILabel!
     
     override func awakeFromNib() {
-        
         super.awakeFromNib()
         setupUI()
     }
+    
+    // MARK: - Private
     
     private func setupUI() {
         cornerRadius()
@@ -51,6 +52,7 @@ class AccountViewCell: UITableViewCell {
     private func cornerRadius() {
         avatarImageView.layer.cornerRadius = Constatns.heightImage / 2
     }
+    
     // MARK: - Public
     
     public func config (for viewModel: ViewModel) {

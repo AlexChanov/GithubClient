@@ -11,12 +11,7 @@ import Foundation
 struct RepositoryDescription: Decodable {
     
     var name: String?
-    var owner: Owner?
-}
-
-struct Owner: Decodable {
-
-    var login: String?
-    var type: String?
-    var avatar_url: String?
+    var language: String?
+    var stargazers_count: Int?
+    var updated_at: String?
 }
