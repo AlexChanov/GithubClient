@@ -22,6 +22,7 @@ protocol MainViewPresenter: class {
     func searchAccounts(name: String)
     func getAccountsList(id: Int)
     func uploadAccountList(_ indexRow: Int)
+    func sortedModel()
 }
 
 final class MainPresenter: MainViewPresenter {
@@ -59,6 +60,7 @@ final class MainPresenter: MainViewPresenter {
             switch result {
             case .success(let repositories):
                 self?.model?.append(contentsOf: repositories!)
+                self?.model?.removeDuplicates()
                 self?.view?.succes()
             case .failure(_):
                 self?.view?.failure()
@@ -73,5 +75,11 @@ final class MainPresenter: MainViewPresenter {
         if (elementCount  - indexRow) == 5 {
             getAccountsList(id: id)
         }
+    }
+    
+    public func sortedModel() {
+        let sortedArray = model?.filter { $0.login != nil }.sorted { $0.login!.lowercased() < $1.login!.lowercased() }
+        model = sortedArray
+        view?.succes()
     }
 }

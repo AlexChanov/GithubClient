@@ -29,6 +29,7 @@ final class MainViewController: UIViewController {
     // Регистрация ячеек сделать
     private func setupViews() {
         setupDelegates()
+        setupNavigationBar()
     }
     
     @IBAction func searchButton(_ sender: Any) {
@@ -41,8 +42,19 @@ final class MainViewController: UIViewController {
         tableView.register(UINib(nibName: "AccountViewCell", bundle: nil), forCellReuseIdentifier: "accountCell")
     }
     
+    private func setupNavigationBar() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh,
+                                                                                 target: self,
+                                                                                 action: #selector(sortedModel))
+    }
+    
     private func searchRepo(name: String) {
         
+    }
+    
+    @objc
+    private func sortedModel() {
+        presenter?.sortedModel()
     }
 }
 
@@ -74,7 +86,6 @@ extension MainViewController: UITableViewDataSource {
         let model = presenter?.model?[indexPath.row]
         cell.config(for: AccountViewCell.DataModel(imageUrl: model?.avatar_url, login: model?.login, type: model?.type))
         
-        presenter?.uploadAccountList(indexPath.row)
         return cell
     }
 }
@@ -87,7 +98,16 @@ extension MainViewController: UITableViewDelegate {
         return Constans.cellHeight
     }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Constans.cellHeight
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        presenter?.uploadAccountList(indexPath.row)
+    }
+    
 }

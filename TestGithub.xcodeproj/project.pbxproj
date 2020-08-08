@@ -24,6 +24,7 @@
 		1C6A187524DE821C00023DF0 /* AccountViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A187324DE821C00023DF0 /* AccountViewCell.swift */; };
 		1C6A187624DE821C00023DF0 /* AccountViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6A187424DE821C00023DF0 /* AccountViewCell.xib */; };
 		1C6A187824DE964500023DF0 /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A187724DE964500023DF0 /* Accounts.swift */; };
+		1C6A187A24DECE2F00023DF0 /* Extension + Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A187924DECE2F00023DF0 /* Extension + Array.swift */; };
 		7CA1E65D29A4678463CCD420 /* Pods_TestGithub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D2D02EABE05C14C5192755 /* Pods_TestGithub.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		1C6A187324DE821C00023DF0 /* AccountViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewCell.swift; sourceTree = "<group>"; };
 		1C6A187424DE821C00023DF0 /* AccountViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountViewCell.xib; sourceTree = "<group>"; };
 		1C6A187724DE964500023DF0 /* Accounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = "<group>"; };
+		1C6A187924DECE2F00023DF0 /* Extension + Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Array.swift"; sourceTree = "<group>"; };
 		60AAF81E9EB265F69BA6A444 /* Pods-TestGithub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestGithub.release.xcconfig"; path = "Target Support Files/Pods-TestGithub/Pods-TestGithub.release.xcconfig"; sourceTree = "<group>"; };
 		C022EEF2680F79C7A621560E /* Pods-TestGithub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestGithub.debug.xcconfig"; path = "Target Support Files/Pods-TestGithub/Pods-TestGithub.debug.xcconfig"; sourceTree = "<group>"; };
 		D9D2D02EABE05C14C5192755 /* Pods_TestGithub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestGithub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,14 +87,12 @@
 		1C6A183524DC163900023DF0 /* TestGithub */ = {
 			isa = PBXGroup;
 			children = (
-				1C6A183624DC163900023DF0 /* AppDelegate.swift */,
 				1C6A183824DC163900023DF0 /* SceneDelegate.swift */,
 				1C6A185D24DD2BFC00023DF0 /* Builder.swift */,
 				1C6A186B24DD9D8A00023DF0 /* Service layer */,
 				1C6A184A24DC27BF00023DF0 /* MainModule */,
 				1C6A184B24DC27CE00023DF0 /* DetailViewController */,
-				1C6A183F24DC163F00023DF0 /* Assets.xcassets */,
-				1C6A184124DC163F00023DF0 /* LaunchScreen.storyboard */,
+				1C6A187B24DECE3900023DF0 /* SupportFiles */,
 				1C6A184424DC163F00023DF0 /* Info.plist */,
 			);
 			path = TestGithub;
@@ -193,6 +193,17 @@
 				1C6A187424DE821C00023DF0 /* AccountViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		1C6A187B24DECE3900023DF0 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				1C6A183624DC163900023DF0 /* AppDelegate.swift */,
+				1C6A187924DECE2F00023DF0 /* Extension + Array.swift */,
+				1C6A183F24DC163F00023DF0 /* Assets.xcassets */,
+				1C6A184124DC163F00023DF0 /* LaunchScreen.storyboard */,
+			);
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 		5ECBB5C2864462A5F1E935DE /* Pods */ = {
@@ -331,6 +342,7 @@
 			files = (
 				1C6A183724DC163900023DF0 /* AppDelegate.swift in Sources */,
 				1C6A184F24DC27F400023DF0 /* DetailViewController.swift in Sources */,
+				1C6A187A24DECE2F00023DF0 /* Extension + Array.swift in Sources */,
 				1C6A183924DC163900023DF0 /* SceneDelegate.swift in Sources */,
 				1C6A185C24DC510500023DF0 /* RepositoryViewCell.swift in Sources */,
 				1C6A187524DE821C00023DF0 /* AccountViewCell.swift in Sources */,
