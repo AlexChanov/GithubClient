@@ -96,9 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				1C6A183824DC163900023DF0 /* SceneDelegate.swift */,
-				1C6A185D24DD2BFC00023DF0 /* AssembleBuilderProtocol.swift */,
-				1C6A187C24DEEA3800023DF0 /* BaseViewController.swift */,
 				1C6A187E24DF03AD00023DF0 /* Router.swift */,
+				1C6A185D24DD2BFC00023DF0 /* AssembleBuilderProtocol.swift */,
 				1C6A186B24DD9D8A00023DF0 /* Service layer */,
 				1C6A184A24DC27BF00023DF0 /* MainModule */,
 				1C6A184B24DC27CE00023DF0 /* DetailViewController */,
@@ -210,6 +209,7 @@
 		1C6A187B24DECE3900023DF0 /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				1C6A187C24DEEA3800023DF0 /* BaseViewController.swift */,
 				1C6A183624DC163900023DF0 /* AppDelegate.swift */,
 				1C6A187924DECE2F00023DF0 /* Extension + Array.swift */,
 				1C6A183F24DC163F00023DF0 /* Assets.xcassets */,

@@ -19,12 +19,15 @@ class DetailViewController: BaseViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    private var expandedIndexSet : IndexSet = []
+    
     public var presenter: DetailViewPresenter?
     
     public enum Constatns {
-        static let cellHeight: CGFloat = 100
-        static let heightImage: CGFloat = 80
+        static let cellDefaultHeight: CGFloat = 85
+        static let cellHeight: CGFloat = 130
         
+        static let heightImage: CGFloat = 80
     }
     
     override func viewDidLoad() {
@@ -49,9 +52,9 @@ class DetailViewController: BaseViewController {
     private func cornerRadius() {
         avatarImageView.layer.cornerRadius = Constatns.heightImage / 2
     }
-    
 }
 
+// MARK: - DetailViewProtocol
 
 extension DetailViewController: DetailViewProtocol {
     
@@ -60,7 +63,7 @@ extension DetailViewController: DetailViewProtocol {
             self.avatarImageView.sd_setImage(with: url, completed: nil)
             self.nameLabel.text = self.presenter?.account?.name
             self.loginLabel.text = self.presenter?.account?.login
-            self.dateCreatedLabel.text = self.presenter?.account?.created_at
+            self.dateCreatedLabel.text = self.presenter?.getDate()
             self.locationLabel.text = self.presenter?.account?.location
         }
         
@@ -93,7 +96,10 @@ extension DetailViewController: UITableViewDataSource {
             else { return UITableViewCell() }
         
         let model = presenter?.model?[indexPath.row]
-        //         cell.config(for: AccountViewCell.DataModel(imageUrl: model?.avatar_url, login: model?.login, type: model?.type))
+        cell.config(for: RepositoryViewCell.DataModel(name: model?.name,
+                                                      language: model?.language,
+                                                      starCount: model?.stargazers_count,
+                                                      dateUpdate: model?.updated_at))
         
         return cell
     }
@@ -105,10 +111,21 @@ extension DetailViewController: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        if(expandedIndexSet.contains(indexPath.row)){
+            expandedIndexSet.remove(indexPath.row)
+        } else {
+            expandedIndexSet.insert(indexPath.row)
+        }
+        
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Constatns.cellHeight
+        if expandedIndexSet.contains(indexPath.row) {
+            return Constatns.cellHeight
+        } else {
+            return Constatns.cellDefaultHeight
+        }
     }
-    
 }

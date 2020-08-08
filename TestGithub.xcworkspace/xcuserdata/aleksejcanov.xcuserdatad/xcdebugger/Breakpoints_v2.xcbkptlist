@@ -30,8 +30,8 @@
             filePath = "TestGithub/MainModule/View/MainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "swapElement(first:second:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,106 +46,10 @@
             filePath = "TestGithub/MainModule/View/MainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "searchButton(_:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4D6B31D6-C828-40DB-9F87-375F60487B6D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TestGithub/DetailViewController/Presenter/DetailPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "getRepositories(name:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "4D6B31D6-C828-40DB-9F87-375F60487B6D - ff5d6f0f4737950e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;TestGithub.RepositoryDescription&gt;&gt;, Swift.Error&gt;) -&gt; () in TestGithub.DetailPresenter.getRepositories() -&gt; ()"
-                  moduleName = "TestGithub"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aleksejcanov/Git/GithubClient/TestGithub/DetailViewController/Presenter/DetailPresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "343">
-               </Location>
-               <Location
-                  uuid = "4D6B31D6-C828-40DB-9F87-375F60487B6D - ff5d6f0f4737950e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;Swift.Array&lt;TestGithub.RepositoryDescription&gt;&gt;, Swift.Error&gt;) -&gt; () in TestGithub.DetailPresenter.getRepositories() -&gt; ()"
-                  moduleName = "TestGithub"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aleksejcanov/Git/GithubClient/TestGithub/DetailViewController/Presenter/DetailPresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "357">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1F282791-8C1B-4C00-BB16-EF7161EFE5AD"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TestGithub/DetailViewController/Presenter/DetailPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "getFullInfo(name:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "1F282791-8C1B-4C00-BB16-EF7161EFE5AD - 2ae161d74947d95c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;TestGithub.AccountFullInfo&gt;, Swift.Error&gt;) -&gt; () in TestGithub.DetailPresenter.getFullInfo(name: Swift.String) -&gt; ()"
-                  moduleName = "TestGithub"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aleksejcanov/Git/GithubClient/TestGithub/DetailViewController/Presenter/DetailPresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "60"
-                  endingLineNumber = "60"
-                  offsetFromSymbolStart = "339">
-               </Location>
-               <Location
-                  uuid = "1F282791-8C1B-4C00-BB16-EF7161EFE5AD - 2ae161d74947d95c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;TestGithub.AccountFullInfo&gt;, Swift.Error&gt;) -&gt; () in TestGithub.DetailPresenter.getFullInfo(name: Swift.String) -&gt; ()"
-                  moduleName = "TestGithub"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aleksejcanov/Git/GithubClient/TestGithub/DetailViewController/Presenter/DetailPresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "60"
-                  endingLineNumber = "60"
-                  offsetFromSymbolStart = "371">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

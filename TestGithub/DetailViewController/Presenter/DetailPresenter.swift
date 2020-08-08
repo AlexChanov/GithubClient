@@ -20,6 +20,8 @@ protocol DetailViewPresenter: class {
     
     var account: AccountFullInfo? { get set }
     var model: [RepositoryDescription]? { get set }
+    
+    func getDate() -> String
 }
 
 final class DetailPresenter: DetailViewPresenter {
@@ -27,7 +29,7 @@ final class DetailPresenter: DetailViewPresenter {
     private weak var view: DetailViewProtocol?
     private let networkService: NetworkServiceProtocol
     private let router: RouterProtocol
-   
+    
     public var account: AccountFullInfo?
     public var model: [RepositoryDescription]?
     
@@ -39,18 +41,20 @@ final class DetailPresenter: DetailViewPresenter {
         getFullInfo(name: account?.login ?? "")
         getRepositories(name: account?.login ?? "")
     }
-        
+    
+    // MARK: - Private
+    
     private func getRepositories(name: String) {
         networkService.getRepositories(name: name) { [weak self] result in
-             guard let self = self else { return }
-             switch result {
-             case .success(let repositories):
-                 self.model = repositories
-                 self.view?.succes()
-             case .failure(_):
-                self.view?.failure(title: "Пороблемы с соединением", message: "Попробуйте позже")
-             }
-         }
+            guard let self = self else { return }
+            switch result {
+            case .success(let repositories):
+                self.model = repositories
+                self.view?.succes()
+            case .failure(_):
+                self.view?.failure(title: "Не удалось получить список репозиториев", message: "Попробуйте позже")
+            }
+        }
     }
     
     private func getFullInfo(name: String) {
@@ -62,8 +66,20 @@ final class DetailPresenter: DetailViewPresenter {
                 let urlImage = URL(string: account?.avatar_url ?? "")
                 self.view?.succes(url: urlImage)
             case .failure(_):
-                self.view?.failure(title: "Пороблемы с соединением", message: "Попробуйте позже")
+                self.view?.failure(title: "Не удалось получить полную информациб об аккаунте", message: "Попробуйте позже")
             }
         }
+    }
+    
+    // MARK: - Public
+    
+    public func getDate() -> String {
+        if let index = account?.created_at?.range(of: "T")?.lowerBound,
+            let substring = account?.created_at?[..<index] {
+            
+            let string = String(substring)
+            return "Дата создания \(string)"
+        }
+        return ""
     }
 }

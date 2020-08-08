@@ -10,12 +10,14 @@ import Foundation
 
 
 protocol MainViewProtocol: class {
+    
     func swapElement(first: IndexPath, second: IndexPath)
     func succes()
     func failure(title: String, message: String)
 }
 
 protocol MainViewPresenter: class {
+    
     init(view: MainViewProtocol, networkService: NetworkServiceProtocol, router: RouterProtocol)
     
     var model: [Account]? { get set }

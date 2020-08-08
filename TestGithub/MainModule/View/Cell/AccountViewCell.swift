@@ -66,10 +66,11 @@ class AccountViewCell: UITableViewCell {
     }
         
     public func highlight() {
+        let colorCell = contentView.backgroundColor
         UIView.animate(withDuration: 1.0, delay: 0.5,options: .autoreverse, animations: {
             self.contentView.backgroundColor = .systemGreen
         }, completion: { (finish) in
-            self.contentView.backgroundColor = .white
+            self.contentView.backgroundColor = colorCell
         } )
     }
 }

@@ -8,25 +8,31 @@
 
 import UIKit
 
-
 public protocol FirstViewCellViewModel {
     
-    var image: UIImage? { get }
     var name: String? { get }
-    var login: String? { get }
-    var type: String? { get }
+    var language: String? { get }
+    var starCount: Int? { get }
+    var dateUpdate: String? { get }
 }
 
 final class RepositoryViewCell: UITableViewCell {
-
+    
     public typealias ViewModel = FirstViewCellViewModel
 
+    // MARK: - Outlets
+    
+    @IBOutlet weak var lanuageLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var starCountLabel: UILabel!
+    @IBOutlet weak var dateUpdateLabel: UILabel!
+    @IBOutlet weak var openButton: UIButton!
+    
     public struct DataModel: FirstViewCellViewModel {
-        
-        public let image: UIImage?
         public let name: String?
-        public let login: String?
-        public let type: String?
+        public let language: String?
+        public let starCount: Int?
+        public let dateUpdate: String?
     }
     
     public enum Constatns {
@@ -35,31 +41,12 @@ final class RepositoryViewCell: UITableViewCell {
         static let heightImage: CGFloat = 80
     }
     
-    // MARK: - Outlets
-    
-    @IBOutlet weak var avatarImageView: UIImageView!
-    @IBOutlet weak var loginLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var typeLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setupUI()
-    }
-    
-    private func setupUI() {
-        cornerRadius()
-    }
-    
-    private func cornerRadius() {
-        avatarImageView.layer.cornerRadius = Constatns.heightImage / 2
-    }
     // MARK: - Public
     
     public func config (for viewModel: ViewModel) {
-        avatarImageView.image = viewModel.image
-        loginLabel.text = viewModel.login
-        nameLabel.text = viewModel.name
-        typeLabel.text = viewModel.type
+        lanuageLabel.text = "Язык программирования - \(viewModel.language ?? "")"
+        nameLabel.text = "Название - \(viewModel.name ?? "")"
+        starCountLabel.text = "Кол-во звезд - \(viewModel.starCount?.description ?? "")"
+        dateUpdateLabel.text = "Дата обновления - \(viewModel.dateUpdate ?? "")"
     }
 }

@@ -10,6 +10,8 @@ import UIKit
 
 final class MainViewController: BaseViewController {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var accountTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
@@ -109,5 +111,4 @@ extension MainViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         presenter?.uploadAccountList(indexPath.row)
     }
-    
 }
