@@ -11,12 +11,17 @@ import Foundation
 struct RepositoryDescription: Decodable {
     
     var name: String?
-    var owner: Owner?
+    var language: String?
+    var stargazers_count: Int?
+    var updated_at: String?
 }
 
-struct Owner: Decodable {
 
+struct AccountFullInfo: Decodable {
+    
     var login: String?
-    var type: String?
     var avatar_url: String?
+    var name: String?
+    var created_at: String?
+    var location: String?
 }

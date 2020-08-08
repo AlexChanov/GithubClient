@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import SDWebImage
 
 public protocol AccountViewCellViewModel {
     
-    var image: UIImage? { get }
+    var imageUrl: String? { get }
     var login: String? { get }
     var type: String? { get }
 }
@@ -20,14 +21,14 @@ class AccountViewCell: UITableViewCell {
     public typealias ViewModel = AccountViewCellViewModel
     
     public struct DataModel: AccountViewCellViewModel {
-        
-        public let image: UIImage?
+        public let imageUrl: String?
         public let login: String?
         public let type: String?
     }
     
     public enum Constatns {
-        
+        static let id: String = "accountCell"
+
         static let heightImage: CGFloat = 80
     }
     
@@ -38,10 +39,11 @@ class AccountViewCell: UITableViewCell {
     @IBOutlet weak var typeLabel: UILabel!
     
     override func awakeFromNib() {
-        
         super.awakeFromNib()
         setupUI()
     }
+    
+    // MARK: - Private
     
     private func setupUI() {
         cornerRadius()
@@ -50,11 +52,25 @@ class AccountViewCell: UITableViewCell {
     private func cornerRadius() {
         avatarImageView.layer.cornerRadius = Constatns.heightImage / 2
     }
+    
     // MARK: - Public
     
     public func config (for viewModel: ViewModel) {
-        avatarImageView.image = viewModel.image
         loginLabel.text = viewModel.login
         typeLabel.text = viewModel.type
+        
+        guard let urlString = viewModel.imageUrl,
+            let url = URL(string:urlString ) else { return }
+        
+        avatarImageView.sd_setImage(with: url, completed: nil)
+    }
+        
+    public func highlight() {
+        let colorCell = contentView.backgroundColor
+        UIView.animate(withDuration: 1.0, delay: 0.5,options: .autoreverse, animations: {
+            self.contentView.backgroundColor = .systemGreen
+        }, completion: { (finish) in
+            self.contentView.backgroundColor = colorCell
+        } )
     }
 }
