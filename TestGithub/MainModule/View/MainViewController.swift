@@ -8,25 +8,24 @@
 
 import UIKit
 
-final class MainViewController: UIViewController {
+final class MainViewController: BaseViewController {
     
     @IBOutlet weak var accountTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-
+    
     public var presenter: MainViewPresenter?
     
     public enum Constans {
-        
-       static let cellHeight: CGFloat = 100
+        static let cellHeight: CGFloat = 100
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
     }
     
     // MARK: - Private
-    // Регистрация ячеек сделать
+    
     private func setupViews() {
         setupDelegates()
         setupNavigationBar()
@@ -39,17 +38,11 @@ final class MainViewController: UIViewController {
     private func setupDelegates() {
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UINib(nibName: "AccountViewCell", bundle: nil), forCellReuseIdentifier: "accountCell")
+        tableView.register(UINib(nibName: "AccountViewCell", bundle: nil), forCellReuseIdentifier: AccountViewCell.Constatns.id)
     }
     
     private func setupNavigationBar() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh,
-                                                                                 target: self,
-                                                                                 action: #selector(sortedModel))
-    }
-    
-    private func searchRepo(name: String) {
-        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Сортировать" , style: .plain, target: self, action: #selector(sortedModel))
     }
     
     @objc
@@ -62,31 +55,35 @@ final class MainViewController: UIViewController {
 
 extension MainViewController: MainViewProtocol {
     
-    func swapElement(first: IndexPath, second: IndexPath) {
+    public func swapElement(first: IndexPath, second: IndexPath) {
         tableView.moveRow(at: first, to: second)
         guard let cell = tableView.cellForRow(at: second) as? AccountViewCell else { return }
         cell.highlight()
     }
     
-    func succes() {
+    public func succes() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
-    func failure() {
+    public func failure(title: String, message: String) {
+        DispatchQueue.main.async {
+            self.showAlert(title: title, message: message)
+        }
     }
 }
 
 // MARK: - UITableViewDataSource
 
 extension MainViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter?.model?.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "accountCell", for: indexPath) as? AccountViewCell
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountViewCell.Constatns.id, for: indexPath) as? AccountViewCell
             else { return UITableViewCell() }
         
         let model = presenter?.model?[indexPath.row]
@@ -100,19 +97,19 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return Constans.cellHeight
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return Constans.cellHeight
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         presenter?.uploadAccountList(indexPath.row)
     }
     

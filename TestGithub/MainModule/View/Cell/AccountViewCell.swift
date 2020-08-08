@@ -21,14 +21,14 @@ class AccountViewCell: UITableViewCell {
     public typealias ViewModel = AccountViewCellViewModel
     
     public struct DataModel: AccountViewCellViewModel {
-        
         public let imageUrl: String?
         public let login: String?
         public let type: String?
     }
     
     public enum Constatns {
-        
+        static let id: String = "accountCell"
+
         static let heightImage: CGFloat = 80
     }
     
@@ -64,7 +64,7 @@ class AccountViewCell: UITableViewCell {
     }
         
     public func highlight() {
-        UIView.animate(withDuration: 1.0, delay: 0.5,options: .autoreverse, animations:{
+        UIView.animate(withDuration: 1.0, delay: 0.5,options: .autoreverse, animations: {
             self.contentView.backgroundColor = .systemGreen
         }, completion: { (finish) in
             self.contentView.backgroundColor = .white

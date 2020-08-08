@@ -12,7 +12,7 @@ import Foundation
 protocol MainViewProtocol: class {
     func swapElement(first: IndexPath, second: IndexPath)
     func succes()
-    func failure()
+    func failure(title: String, message: String)
 }
 
 protocol MainViewPresenter: class {
@@ -39,14 +39,16 @@ final class MainPresenter: MainViewPresenter {
         getAccountsList(id: 0)
     }
     
+    // MARK: - Public
+    
     public func searchAccounts(name: String) {
         
         if let value = (model?.firstIndex(where: { $0.login == name })) {
             model?.swapAt(value, 0)
             view?.swapElement(first: IndexPath(row: value, section: 0), second: IndexPath(row: 0, section: 0))
+        } else {
+            view?.failure(title: "Аккаунт не найдет", message: "Попробуйте снова")
         }
-        
-        
         
 //        networkService.getRepositories(name: name) { [weak self] result in
 //            guard let self = self else { return }
@@ -70,8 +72,8 @@ final class MainPresenter: MainViewPresenter {
                 self?.model?.removeDuplicates()
                 self?.view?.succes()
             case .failure(_):
-                self?.view?.failure()
-                print("failer")
+                
+                self?.view?.failure(title: "Пороблемы с соединением", message: "Попробуйте позже")
             }
         }
     }
