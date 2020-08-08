@@ -61,6 +61,13 @@ final class MainViewController: UIViewController {
 // MARK: - MainViewProtocol
 
 extension MainViewController: MainViewProtocol {
+    
+    func swapElement(first: IndexPath, second: IndexPath) {
+        tableView.moveRow(at: first, to: second)
+        guard let cell = tableView.cellForRow(at: second) as? AccountViewCell else { return }
+        cell.highlight()
+    }
+    
     func succes() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -68,7 +75,6 @@ extension MainViewController: MainViewProtocol {
     }
     
     func failure() {
-        
     }
 }
 

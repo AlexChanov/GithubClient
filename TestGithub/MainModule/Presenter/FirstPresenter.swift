@@ -10,6 +10,7 @@ import Foundation
 
 
 protocol MainViewProtocol: class {
+    func swapElement(first: IndexPath, second: IndexPath)
     func succes()
     func failure()
 }
@@ -40,7 +41,13 @@ final class MainPresenter: MainViewPresenter {
     
     public func searchAccounts(name: String) {
         
-
+        if let value = (model?.firstIndex(where: { $0.login == name })) {
+            model?.swapAt(value, 0)
+            view?.swapElement(first: IndexPath(row: value, section: 0), second: IndexPath(row: 0, section: 0))
+        }
+        
+        
+        
 //        networkService.getRepositories(name: name) { [weak self] result in
 //            guard let self = self else { return }
 //

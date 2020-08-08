@@ -62,4 +62,12 @@ class AccountViewCell: UITableViewCell {
         
         avatarImageView.sd_setImage(with: url, completed: nil)
     }
+        
+    public func highlight() {
+        UIView.animate(withDuration: 1.0, delay: 0.5,options: .autoreverse, animations:{
+            self.contentView.backgroundColor = .systemGreen
+        }, completion: { (finish) in
+            self.contentView.backgroundColor = .white
+        } )
+    }
 }
