@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="TestGithub" customModuleProvider="target">
+            <connections>
+                <outlet property="accountTextField" destination="EeO-tl-dJ4" id="Hci-le-9GK"/>
+                <outlet property="tableView" destination="Blr-bf-WLB" id="puX-Qz-Uur"/>
+                <outlet property="view" destination="iN0-l3-epB" id="1Xc-qr-cdf"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Blr-bf-WLB">
+                    <rect key="frame" x="0.0" y="66" width="375" height="601"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите название аккаунта" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EeO-tl-dJ4">
+                    <rect key="frame" x="20" y="20" width="266" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="mfG-3l-HGV"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVD-aF-CNn">
+                    <rect key="frame" x="294" y="22" width="61" height="30"/>
+                    <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="61" id="f3a-3W-pkP"/>
+                    </constraints>
+                    <state key="normal" title="Найти">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="searchButton:" destination="-1" eventType="touchUpInside" id="ejd-9f-3BT"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="EeO-tl-dJ4" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="1f6-0I-REm"/>
+                <constraint firstItem="TVD-aF-CNn" firstAttribute="centerY" secondItem="EeO-tl-dJ4" secondAttribute="centerY" id="6ns-yy-7MR"/>
+                <constraint firstItem="Blr-bf-WLB" firstAttribute="top" secondItem="EeO-tl-dJ4" secondAttribute="bottom" constant="12" id="GqA-XO-93V"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="TVD-aF-CNn" secondAttribute="trailing" constant="20" id="Hav-FK-vwJ"/>
+                <constraint firstItem="Blr-bf-WLB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="JAC-iW-7zw"/>
+                <constraint firstItem="Blr-bf-WLB" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="RCH-1Q-ciu"/>
+                <constraint firstItem="TVD-aF-CNn" firstAttribute="leading" secondItem="EeO-tl-dJ4" secondAttribute="trailing" constant="8" id="fhc-la-T75"/>
+                <constraint firstItem="Blr-bf-WLB" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="liF-CA-XkF"/>
+                <constraint firstItem="EeO-tl-dJ4" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="wvx-bw-9RN"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="140.57971014492756" y="153.2608695652174"/>
+        </view>
+    </objects>
+</document>
