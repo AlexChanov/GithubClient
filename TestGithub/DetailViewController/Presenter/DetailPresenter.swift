@@ -76,7 +76,6 @@ final class DetailPresenter: DetailViewPresenter {
     public func getDate() -> String {
         if let index = account?.created_at?.range(of: "T")?.lowerBound,
             let substring = account?.created_at?[..<index] {
-            
             let string = String(substring)
             return "Дата создания \(string)"
         }

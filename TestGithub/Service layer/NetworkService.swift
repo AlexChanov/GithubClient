@@ -68,7 +68,6 @@ final class NetworkService: NetworkServiceProtocol {
         }.resume()
     }
     
-    
     public func getFullInfoAccount(name: String, complition: @escaping (Result<AccountFullInfo?, Error>) -> Void) {
         guard let url = apiWrapper.makeFullInfoAccount(name: name) else { return }
         
@@ -87,5 +86,4 @@ final class NetworkService: NetworkServiceProtocol {
             }
         }.resume()
     }
-    
 }
