@@ -55,7 +55,7 @@ class AccountViewCell: UITableViewCell {
     
     // MARK: - Public
     
-    public func config (for viewModel: ViewModel) {
+    public func config(for viewModel: ViewModel) {
         loginLabel.text = viewModel.login
         typeLabel.text = viewModel.type
         

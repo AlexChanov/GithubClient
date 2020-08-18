@@ -40,7 +40,6 @@ class DetailViewController: BaseViewController {
     private func setupViews() {
         setupDelegates()
         cornerRadius()
-        
     }
     
     private func setupDelegates() {
@@ -66,7 +65,6 @@ extension DetailViewController: DetailViewProtocol {
             self.dateCreatedLabel.text = self.presenter?.getDate()
             self.locationLabel.text = self.presenter?.account?.location
         }
-        
     }
     
     public func succes() {
@@ -91,7 +89,6 @@ extension DetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RepositoryViewCell.Constatns.id, for: indexPath) as? RepositoryViewCell
             else { return UITableViewCell() }
         
@@ -117,7 +114,6 @@ extension DetailViewController: UITableViewDelegate {
         } else {
             expandedIndexSet.insert(indexPath.row)
         }
-        
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     

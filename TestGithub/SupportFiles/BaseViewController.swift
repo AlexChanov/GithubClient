@@ -10,7 +10,7 @@ import UIKit
 
 class BaseViewController: UIViewController {
     
-    public func showAlert(title: String, message:String){
+    public func showAlert(title: String, message:String) {
         let alertController = UIAlertController(title: title, message:
         message, preferredStyle: UIAlertController.Style.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))

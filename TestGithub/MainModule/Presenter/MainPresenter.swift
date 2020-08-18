@@ -59,7 +59,8 @@ final class MainPresenter: MainViewPresenter {
         networkService.getAccounts(since: id) { [weak self] (result) in
             switch result {
             case .success(let repositories):
-                self?.model?.append(contentsOf: repositories!)
+                guard let repositories = repositories else { return }
+                self?.model?.append(contentsOf: repositories)
                 self?.model?.removeDuplicates()
                 self?.view?.succes()
             case .failure(_):
@@ -70,7 +71,6 @@ final class MainPresenter: MainViewPresenter {
     
     public func uploadAccountList(_ indexRow: Int) {
         guard let elementCount = model?.count, let id = model?.last?.id else { return }
-        
         if (elementCount  - indexRow) == 5 {
             getAccountsList(id: id)
         }
