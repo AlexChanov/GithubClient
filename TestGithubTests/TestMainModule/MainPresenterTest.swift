@@ -94,15 +94,6 @@ class MainPresenterTest: XCTestCase {
         router = Router(navigationController: navigationController, assemblyBuilder: assembly)
     }
     
-    override func setUpWithError() throws {
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
     func testGetSuccesData()  {
         let account = Account(login: "Alex", avatar_url: "account", type: "publuc", id: 3)
         modelAccounts.append(account)
