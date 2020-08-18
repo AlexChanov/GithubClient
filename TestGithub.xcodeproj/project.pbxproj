@@ -29,8 +29,21 @@
 		1C6A187F24DF03AD00023DF0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A187E24DF03AD00023DF0 /* Router.swift */; };
 		1C6A188124DF05F800023DF0 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6A188024DF05F800023DF0 /* DetailPresenter.swift */; };
 		1C6A188324DF169E00023DF0 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6A188224DF169E00023DF0 /* DetailViewController.xib */; };
+		1CC95D7F24EB0CB20009F71B /* TestGithubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC95D7E24EB0CB20009F71B /* TestGithubTests.swift */; };
+		1CC95D8724EB0EA30009F71B /* MainPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC95D8624EB0EA30009F71B /* MainPresenterTest.swift */; };
+		1CC95D8A24EBF78D0009F71B /* RouterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC95D8924EBF78D0009F71B /* RouterTest.swift */; };
 		7CA1E65D29A4678463CCD420 /* Pods_TestGithub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D2D02EABE05C14C5192755 /* Pods_TestGithub.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1CC95D8124EB0CB20009F71B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C6A182B24DC163900023DF0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1C6A183224DC163900023DF0;
+			remoteInfo = TestGithub;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1C6A183324DC163900023DF0 /* TestGithub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestGithub.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +70,11 @@
 		1C6A187E24DF03AD00023DF0 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		1C6A188024DF05F800023DF0 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		1C6A188224DF169E00023DF0 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		1CC95D7C24EB0CB20009F71B /* TestGithubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestGithubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CC95D7E24EB0CB20009F71B /* TestGithubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGithubTests.swift; sourceTree = "<group>"; };
+		1CC95D8024EB0CB20009F71B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CC95D8624EB0EA30009F71B /* MainPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterTest.swift; sourceTree = "<group>"; };
+		1CC95D8924EBF78D0009F71B /* RouterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTest.swift; sourceTree = "<group>"; };
 		60AAF81E9EB265F69BA6A444 /* Pods-TestGithub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestGithub.release.xcconfig"; path = "Target Support Files/Pods-TestGithub/Pods-TestGithub.release.xcconfig"; sourceTree = "<group>"; };
 		C022EEF2680F79C7A621560E /* Pods-TestGithub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestGithub.debug.xcconfig"; path = "Target Support Files/Pods-TestGithub/Pods-TestGithub.debug.xcconfig"; sourceTree = "<group>"; };
 		D9D2D02EABE05C14C5192755 /* Pods_TestGithub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestGithub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +89,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1CC95D7924EB0CB20009F71B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -78,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				1C6A183524DC163900023DF0 /* TestGithub */,
+				1CC95D7D24EB0CB20009F71B /* TestGithubTests */,
 				1C6A183424DC163900023DF0 /* Products */,
 				5ECBB5C2864462A5F1E935DE /* Pods */,
 				CB5F94E71EAD1839AF70FFDD /* Frameworks */,
@@ -88,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				1C6A183324DC163900023DF0 /* TestGithub.app */,
+				1CC95D7C24EB0CB20009F71B /* TestGithubTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -218,6 +245,25 @@
 			path = SupportFiles;
 			sourceTree = "<group>";
 		};
+		1CC95D7D24EB0CB20009F71B /* TestGithubTests */ = {
+			isa = PBXGroup;
+			children = (
+				1CC95D8924EBF78D0009F71B /* RouterTest.swift */,
+				1CC95D8824EB11010009F71B /* TestMainModule */,
+				1CC95D7E24EB0CB20009F71B /* TestGithubTests.swift */,
+				1CC95D8024EB0CB20009F71B /* Info.plist */,
+			);
+			path = TestGithubTests;
+			sourceTree = "<group>";
+		};
+		1CC95D8824EB11010009F71B /* TestMainModule */ = {
+			isa = PBXGroup;
+			children = (
+				1CC95D8624EB0EA30009F71B /* MainPresenterTest.swift */,
+			);
+			path = TestMainModule;
+			sourceTree = "<group>";
+		};
 		5ECBB5C2864462A5F1E935DE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +303,24 @@
 			productReference = 1C6A183324DC163900023DF0 /* TestGithub.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1CC95D7B24EB0CB20009F71B /* TestGithubTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CC95D8524EB0CB20009F71B /* Build configuration list for PBXNativeTarget "TestGithubTests" */;
+			buildPhases = (
+				1CC95D7824EB0CB20009F71B /* Sources */,
+				1CC95D7924EB0CB20009F71B /* Frameworks */,
+				1CC95D7A24EB0CB20009F71B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1CC95D8224EB0CB20009F71B /* PBXTargetDependency */,
+			);
+			name = TestGithubTests;
+			productName = TestGithubTests;
+			productReference = 1CC95D7C24EB0CB20009F71B /* TestGithubTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -269,6 +333,10 @@
 				TargetAttributes = {
 					1C6A183224DC163900023DF0 = {
 						CreatedOnToolsVersion = 11.5;
+					};
+					1CC95D7B24EB0CB20009F71B = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 1C6A183224DC163900023DF0;
 					};
 				};
 			};
@@ -286,6 +354,7 @@
 			projectRoot = "";
 			targets = (
 				1C6A183224DC163900023DF0 /* TestGithub */,
+				1CC95D7B24EB0CB20009F71B /* TestGithubTests */,
 			);
 		};
 /* End PBXProject section */
@@ -301,6 +370,13 @@
 				1C6A186824DD384100023DF0 /* RepositoryViewCell.xib in Resources */,
 				1C6A187624DE821C00023DF0 /* AccountViewCell.xib in Resources */,
 				1C6A184024DC163F00023DF0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1CC95D7A24EB0CB20009F71B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +448,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1CC95D7824EB0CB20009F71B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CC95D7F24EB0CB20009F71B /* TestGithubTests.swift in Sources */,
+				1CC95D8A24EBF78D0009F71B /* RouterTest.swift in Sources */,
+				1CC95D8724EB0EA30009F71B /* MainPresenterTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1CC95D8224EB0CB20009F71B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1C6A183224DC163900023DF0 /* TestGithub */;
+			targetProxy = 1CC95D8124EB0CB20009F71B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1C6A184124DC163F00023DF0 /* LaunchScreen.storyboard */ = {
@@ -536,6 +630,44 @@
 			};
 			name = Release;
 		};
+		1CC95D8324EB0CB20009F71B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TestGithubTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com-Skadi.TestGithubTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestGithub.app/TestGithub";
+			};
+			name = Debug;
+		};
+		1CC95D8424EB0CB20009F71B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TestGithubTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com-Skadi.TestGithubTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestGithub.app/TestGithub";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -553,6 +685,15 @@
 			buildConfigurations = (
 				1C6A184824DC163F00023DF0 /* Debug */,
 				1C6A184924DC163F00023DF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CC95D8524EB0CB20009F71B /* Build configuration list for PBXNativeTarget "TestGithubTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CC95D8324EB0CB20009F71B /* Debug */,
+				1CC95D8424EB0CB20009F71B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
