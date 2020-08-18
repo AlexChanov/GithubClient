@@ -248,7 +248,6 @@
 		1CC95D7D24EB0CB20009F71B /* TestGithubTests */ = {
 			isa = PBXGroup;
 			children = (
-				1CC95D8924EBF78D0009F71B /* RouterTest.swift */,
 				1CC95D8824EB11010009F71B /* TestMainModule */,
 				1CC95D7E24EB0CB20009F71B /* TestGithubTests.swift */,
 				1CC95D8024EB0CB20009F71B /* Info.plist */,
@@ -259,6 +258,7 @@
 		1CC95D8824EB11010009F71B /* TestMainModule */ = {
 			isa = PBXGroup;
 			children = (
+				1CC95D8924EBF78D0009F71B /* RouterTest.swift */,
 				1CC95D8624EB0EA30009F71B /* MainPresenterTest.swift */,
 			);
 			path = TestMainModule;
